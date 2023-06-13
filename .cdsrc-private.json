@@ -1,0 +1,21 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "CAPtest-db-key": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "1dfe7399trial",
+          "space": "dev",
+          "instance": "CAPtest-db",
+          "key": "CAPtest-db-key",
+          "resolved": false
+        },
+        "kind": "hana-cloud",
+        "vcap": {
+          "name": "CAPtest-db-key"
+        }
+      }
+    }
+  }
+}
