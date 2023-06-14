@@ -17,12 +17,21 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/valerio/",
+        "uri": "v2/valerio/",
         "type": "OData",
         "settings": {
           "annotations": [],
           "localUri": "localService/metadata.xml",
-          "odataVersion": "4.0"
+          "odataVersion": "2.0"
+        }
+      },
+      "serviceTwo": {
+        "uri": "v2/patricolo/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
         }
       }
     }
@@ -71,6 +80,16 @@
       },
       "": {
         "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "modello2":{
+        "dataSource": "serviceTwo",
         "preload": true,
         "settings": {
           "synchronizationMode": "None",

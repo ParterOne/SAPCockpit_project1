@@ -6,3 +6,9 @@ entity TabellaProva {
   Name  : String(50);
   Date  : Timestamp;
 }
+
+entity TabellaProva2 { 
+  key ID : Integer;
+  Name  : String(50);
+  Date  : Timestamp;
+}
