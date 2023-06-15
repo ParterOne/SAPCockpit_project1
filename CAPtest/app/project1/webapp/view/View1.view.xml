@@ -2,6 +2,28 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content>
+            <ScrollContainer width="100%" height="100%" vertical="true" horizontal="true">
+                <Table id="idProductsTable" alternateRowColors="true" inset="false" items="{myModel>/TabellaProvaService}">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Button text="Nuovo Record" press="onOpenDialog"></Button>
+                         </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="8em">
+                            <Text text="Dati" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle" type="Active" press="onPressLine">
+                            <cells>
+                                <Text text="{myModel>Name}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </ScrollContainer>
+        </content>
     </Page>
 </mvc:View>
