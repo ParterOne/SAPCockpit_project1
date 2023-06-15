@@ -60,14 +60,43 @@ sap.ui.define([
             var oModel = oDialog.getModel("formModel");
             var oData = oModel.getData();
             var xsoDataModelReport = this.getOwnerComponent().getModel();
-            //xsoDataModelReport.create("/TabellaProvaService", {ID: oData.Id, Name: oData.FirstName , Date: oData.Data});
-            //xsoDataModelReport.update("/TabellaProvaService(ID=5)", {Name: oData.FirstName , Date: oData.Data});
-            xsoDataModelReport.remove("/TabellaProvaService(ID=5)");
+            xsoDataModelReport.create("/TabellaProvaService", {ID: oData.Id, Name: oData.FirstName , Date: oData.Data});
+            //xsoDataModelReport.update("/TabellaProvaService(ID=5)", {Name: oData.FirstName , Date: oData.Data})
 
 
             /* var oForm = this.getView().getModel("oForm").getProperty("/CustomerID");
             this.getView().getModel("Riga").setProperty("/CustomerID",oForm);
             this.getView().getModel("Orders").updateBindings(); */
+          },
+
+          removeEmployee: function(e) {
+            debugger;
+            var oDialog = e.getSource().getParent();
+            var oModel = oDialog.getModel("formModel");
+            var oData = oModel.getData();
+            var iD = oData.Id;
+            var xsoDataModelReport = this.getOwnerComponent().getModel();
+            var deleteUrl = `/TabellaProvaService(ID=${iD})`;
+            xsoDataModelReport.remove(deleteUrl);
+          },
+
+          updateEmployee: function(e) {
+            debugger;
+            var oDialog = e.getSource().getParent();
+            var oModel = oDialog.getModel("formModel");
+            var oData = oModel.getData();
+            var iD = oData.Id;
+            var xsoDataModelReport = this.getOwnerComponent().getModel();
+            var updateUrl = `/TabellaProvaService(ID=${iD})`;
+            xsoDataModelReport.update(updateUrl, {ID: oData.Id, Name: oData.FirstName , Date: oData.Data})
+          },
+
+          onPressLine: function (e) {
+            var oTableItem = e.getSource();
+            var oBindingContext = oTableItem.getBindingContext("myModel");
+            var oData = oBindingContext.getObject();
+            var iD = oData.ID;
+            console.log(iD);
           }
     })
 })

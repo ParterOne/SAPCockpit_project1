@@ -55,6 +55,8 @@
             <Input type="Text" value="{formModel>/Data}"></Input>
 
             <Button text="Add" press="addEmployee"/>
+            <Button text="Modify" press="updateEmployee"/>
+            <Button text="Remove" press="removeEmployee"/>
             <Button text="Close" press="closeOnPress"/>
         </f:content>
         <VBox>
